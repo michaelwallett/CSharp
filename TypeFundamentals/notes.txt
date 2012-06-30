@@ -1,0 +1,12 @@
+Primitive Types
+---------------
+
+Any type the compiler directly supports.
+The compiler is able to cast primitive types implicity and explicitly.
+Implicit casts are "safe" becuase they do not result in data loss.
+Primitive types can be written as literals. A literal is an instace of the type itself.
+
+Overflow Checking
+-----------------
+
+C# has overflow checking off by default.

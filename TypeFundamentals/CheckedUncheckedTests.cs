@@ -8,7 +8,7 @@ namespace TypeFundamentals
     public class CheckedUncheckedTests
     {
         [Test]
-        public void OverflowThrowsAnExceptionWithChecked()
+        public void OverflowThrowsAnExceptionWithCheckedOperation()
         {
             Should.Throw<OverflowException>(ByteOverflowWithCheckedOperator);
             Should.Throw<OverflowException>(ByteOverflowWithCheckedStatement);
@@ -31,7 +31,7 @@ namespace TypeFundamentals
         }
 
         [Test]
-        public void OverflowDoesNotThrowAnExceptionWithUnchecked()
+        public void OverflowDoesNotThrowAnExceptionWithUncheckedOperation()
         {
             // checked operator
             byte i = byte.MaxValue;
