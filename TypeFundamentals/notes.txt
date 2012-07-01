@@ -21,3 +21,16 @@ Value types derive from System.Object > System.ValueType.
 Value types are sealed.
 Value types should be immutable.
 Value types should be small (16 bytes or less) to reduce memory overhead when passing by value.
+
+Boxing
+------
+
+1) Memory is allocated from the managed heap.
+2) The value type's fields are copied to the allocated memory.
+3) A pointer to the object (boxed value type) is returned.
+
+Unboxing
+--------
+
+Obtaining a pointer to object (boxed value type) on the heap.
+	This operation is typically followed by copying the value type's fields into the thread stack.
