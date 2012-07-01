@@ -9,4 +9,7 @@ Primitive types can be written as literals. A literal is an instace of the type 
 Overflow Checking
 -----------------
 
-C# has overflow checking off by default.
+C# compiler has overflow checking off by default.
+Decimal is not a CLR primitive type.
+	There are no overflow specific IL instructions.
+	The checked and unchecked operators have no effect.

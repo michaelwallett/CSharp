@@ -33,14 +33,14 @@ namespace TypeFundamentals
         [Test]
         public void OverflowDoesNotThrowAnExceptionWithUncheckedOperation()
         {
-            // checked operator
+            // unchecked operator
             byte i = byte.MaxValue;
 
             i = unchecked((byte)(i + 1));
 
             i.ShouldBe(byte.MinValue);
 
-            // checked statement
+            // unchecked statement
             i = byte.MaxValue;
 
             unchecked
@@ -49,6 +49,14 @@ namespace TypeFundamentals
             }
 
             i.ShouldBe(byte.MinValue);
+        }
+
+        [Test]
+        public void OverflowThrowsAnExceptionForDecimalEvenWithUncheckedOperator()
+        {
+            decimal i = decimal.MaxValue;
+
+            Should.Throw<OverflowException>(() => i = unchecked(i + 1));
         }
     }
 }
