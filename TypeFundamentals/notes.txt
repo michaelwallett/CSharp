@@ -13,3 +13,11 @@ C# compiler has overflow checking off by default.
 Decimal is not a CLR primitive type.
 	There are no overflow specific IL instructions.
 	The checked and unchecked operators have no effect.
+
+Value Types
+-----------
+
+Value types derive from System.Object > System.ValueType.
+Value types are sealed.
+Value types should be immutable.
+Value types should be small (16 bytes or less) to reduce memory overhead when passing by value.
