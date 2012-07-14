@@ -41,3 +41,14 @@ Unboxing
 
 Obtaining a pointer to object (boxed value type) on the heap.
 	This operation is typically followed by copying the value type's fields into the thread stack.
+
+Equality
+--------
+
+http://msdn.microsoft.com/en-us/library/ms173147(v=vs.80).aspx
+
+Hash Codes
+----------
+
+http://stackoverflow.com/questions/263400/what-is-the-best-algorithm-for-an-overridden-system-object-gethashcode
+http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
