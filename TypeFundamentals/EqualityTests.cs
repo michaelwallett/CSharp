@@ -160,12 +160,12 @@ namespace TypeFundamentals
             {
                 unchecked
                 {
-                    int hash = 17;
+                    int hashCode = 17;
 
-                    hash = (hash * 23) + _x.GetHashCode();
-                    hash = (hash * 23) + _y.GetHashCode();
+                    hashCode = (hashCode * 23) + _x.GetHashCode();
+                    hashCode = (hashCode * 23) + _y.GetHashCode();
 
-                    return hash;
+                    return hashCode;
                 }
             }
         }
