@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BoxingAndUnboxingTests.cs" />
     <Compile Include="CheckedUncheckedTests.cs" />
+    <Compile Include="DynamicTests.cs" />
     <Compile Include="EqualityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeFieldLayoutTests.cs" />

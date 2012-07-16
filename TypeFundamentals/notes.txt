@@ -18,7 +18,7 @@ Value Types
 -----------
 
 Value types derive from System.Object > System.ValueType.
-Value types are sealed.
+Value types are implicitly sealed.
 Value types should be immutable.
 Value types should be small (16 bytes or less) to reduce memory overhead when passing by value.
 Value types are allocated on the heap.
@@ -52,3 +52,24 @@ Hash Codes
 
 http://stackoverflow.com/questions/263400/what-is-the-best-algorithm-for-an-overridden-system-object-gethashcode
 http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
+
+Dynamic
+-------
+
+Dynamic is a primitive type.
+IL code is produced that describes the desired operation.
+	This code is referred to as the payload.
+A dynamic expression is really the same type as System.Object.
+
+Any expression can implicilty be cast to dynamic since all expressions result in a type that is derived from System.Object.
+
+object o = 123;
+int i = o; // Error: Needs to be explicitly cast from object to int.
+int i = (int)o; // Explicit cast from object to int.
+
+dynamic d = 123;
+int i = d; // Implicit cast from dynamic to int.
+
+At runtime the C# compiler first checks to see if an object implements the IDynamicMetaObjectProvider interface.
+	If yes then the GetMetaObject method is called which returns a DynamicMetaObject derived type.
+	If no then the reflection is used.
