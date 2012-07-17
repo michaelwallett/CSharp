@@ -73,3 +73,12 @@ int i = d; // Implicit cast from dynamic to int.
 At runtime the C# compiler first checks to see if an object implements the IDynamicMetaObjectProvider interface.
 	If yes then the GetMetaObject method is called which returns a DynamicMetaObject derived type.
 	If no then the reflection is used.
+
+Type Visibility
+---------------
+
+You can access internal types from another assembly if the calling assembly is considered a "friend".
+	You specifiy friend assemblies by using the InternalsVisibleTo attribute.
+	The friend assembly feature should only be used by assemblies that ship together.
+
+

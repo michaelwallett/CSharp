@@ -2,17 +2,14 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Friend assembly
-[assembly: InternalsVisibleTo("FriendAssemblyTest")]
-
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TypeFundamentals")]
+[assembly: AssemblyTitle("FriendAssemblyTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TypeFundamentals")]
+[assembly: AssemblyProduct("FriendAssemblyTest")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -23,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("08fc213a-0f22-410d-8758-395ed4a1f927")]
+[assembly: Guid("ea714a3e-4921-4f4b-a817-a4bf2c084eeb")]
 
 // Version information for an assembly consists of the following four values:
 //
