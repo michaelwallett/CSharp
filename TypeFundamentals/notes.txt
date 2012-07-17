@@ -18,10 +18,11 @@ Value Types
 -----------
 
 Value types derive from System.Object > System.ValueType.
+Value types are allocated on the stack.
 Value types are implicitly sealed.
+Value types cannot be static.
 Value types should be immutable.
 Value types should be small (16 bytes or less) to reduce memory overhead when passing by value.
-Value types are allocated on the heap.
 Value types do not have a type object pointer or a sync block index.
 Because value types don't have a sync block index it's not possible to have multiple threads synchronise their access to the instance.
 The CLR invokes virtual methods (Equals, GetHashCode, ToString) nonvirtually because value types are implicitly sealed.
@@ -81,4 +82,8 @@ You can access internal types from another assembly if the calling assembly is c
 	You specifiy friend assemblies by using the InternalsVisibleTo attribute.
 	The friend assembly feature should only be used by assemblies that ship together.
 
+Static Classes
+--------------
 
+Defining a class as static causes the c# compiler to make the class both abstract and sealed.
+The c# compiler will not emit an instance constructor (.ctor).
