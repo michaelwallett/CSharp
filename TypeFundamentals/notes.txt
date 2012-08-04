@@ -87,3 +87,19 @@ Static Classes
 
 Defining a class as static causes the c# compiler to make the class both abstract and sealed.
 The c# compiler will not emit an instance constructor (.ctor).
+
+Virtual Methods
+---------------
+
+The CLR offers two IL instructions for calling a method.
+	The call IL instruction can be used to call static, instance, and virtual methods.
+		Assumes that the object variable is not null.
+		Often used to call a virtual method nonvirtually.
+			To prevent a method from calling itself recursively until the stack is overflowed.
+	The callvirt IL instruction can be used to call instance and virtual methods.
+		The JIT compiler generates code to check for null references.
+			A NullReferenceException will be thrown.
+
+The C# compiler will always emit a callvirt IL instruction for instance and virtual methods.
+	It is left to the JIT compiler to determine whether a method should be called virtually.
+	This means a null check is performed when calling an instance method.
