@@ -22,3 +22,13 @@ The BeforeFieldInit flag (found in the type definition metadata table) specifies
 If the BeforeFieldInit flag is omitted then the type constructor will run precisely before a member is accessed.
 	The BeforeFieldInit field will not be added to the type defintion table if there is an explicit type constructor.
 		The type constructor will be run precisely before a member is accessed.
+
+Operator Overload Methods
+-------------------------
+
+http://msdn.microsoft.com/en-us/library/aa288467(v=vs.71).aspx
+
+Operator Conversion Methods
+---------------------------
+
+Only define an implicit conversion operator when precision or magnitude isn't lost.
