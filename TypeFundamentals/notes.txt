@@ -29,6 +29,7 @@ The CLR invokes virtual methods (Equals, GetHashCode, ToString) nonvirtually bec
 	Except when you override a virtual method and call the base type's implementation.
 		The value type gets boxed.
 Calling a nonvirtual method (GetType, MemberwiseClone) required the value type to be boxed becuase these methods are defined by System.Object.
+The this keyword is read/write within a value type.
 
 Boxing
 ------
