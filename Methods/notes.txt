@@ -1,9 +1,24 @@
 ﻿Instance Constructors
 ---------------------
 
-Constructors are called .ctor in a method definition table.
+Instance constructors are called .ctor in a method definition table.
 The C# compiler will generate code in the constructor for fields that are initialised inline.
 The CLR always allows the creation of a value type.
 	The C# compiler does not emit a default constructor for value types.
 	You cannot define your own default constructor.
 You must initialise all fields in value type constructor.
+You cannot use inline field initilisation for a value type.
+
+Type Constructors
+-----------------
+
+Type constructors are called .cctor (class constructor) in a method definition table.
+Type constructors can only be private.
+The CLR guarantees that a type constructor executes only once per AppDomain and is thread-safe.
+The BeforeFieldInit flag (found in the type definition metadata table) specifies that the type constructor will run some time before a member is accessed; it could run much earlier.
+	This is preferred becuase it gives the CLR the most freedom as to when a type constructor gets called.
+	The BeforeFieldInit field will be be added to the type defintion table if static fields are initialised inline.
+
+If the BeforeFieldInit flag is omitted then the type constructor will run precisely before a member is accessed.
+	The BeforeFieldInit field will not be added to the type defintion table if there is an explicit type constructor.
+		The type constructor will be run precisely before a member is accessed.
