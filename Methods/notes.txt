@@ -32,3 +32,17 @@ Operator Conversion Methods
 ---------------------------
 
 Only define an implicit conversion operator when precision or magnitude isn't lost.
+
+Extension Methods
+-----------------
+
+The C# compiler will add the ExtensionAttribute to an extension method.
+
+Partial Methods
+---------------
+
+Partial methods must always have a return type of void.
+Partial methods cannot have any parameters marked with the out modifier.
+	The method may not exist so there is no guarantee the parameter would get initialised.
+Partial methods can only be private.
+Partial methods can only be declared within a partial class or struct.
