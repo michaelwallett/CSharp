@@ -1,0 +1,5 @@
+Constants
+---------
+
+When code refers to a constant symbol, compilers look up the symbol in the metadata of the assembly that defines the constant, extracts the constant's value, and embeds the value in the emitted IL.
+Constant's don't require any memory allocated for them at runtime.
