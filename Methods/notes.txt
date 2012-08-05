@@ -1,0 +1,9 @@
+﻿Instance Constructors
+---------------------
+
+Constructors are called .ctor in a method definition table.
+The C# compiler will generate code in the constructor for fields that are initialised inline.
+The CLR always allows the creation of a value type.
+	The C# compiler does not emit a default constructor for value types.
+	You cannot define your own default constructor.
+You must initialise all fields in value type constructor.
