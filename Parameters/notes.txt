@@ -31,3 +31,9 @@ Passing a Variable Number of Arguments
 --------------------------------------
 
 The C# compiler will add the ParamArrayAttribute to a parameter marked with the params keyword.
+
+Parameter & Return Type Guidlines
+---------------------------------
+
+When declaring a method's parameter types, you should specifiy the weakest type possible.
+When declaring a method's return type, you should specfiy the strongest type possible.
