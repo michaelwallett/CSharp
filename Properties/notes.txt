@@ -1,0 +1,53 @@
+Parameterless Properties
+------------------------
+
+A property is supposed to represent a characteristic of an object that can be queried or set.
+A property is not supposed to have behaviour.
+The C# compiler will emit the following items into the managed assembly:
+	A method for the get accessor.
+		The method will be called get_{PropertyName}.
+	A method for the set accessor.
+		The method will be called set_{PropertyName}.
+	A property definition in the assembly's metadata.
+You must declare both get and set methods for automatically implemented properties.
+
+Anonymous Types
+---------------
+
+Anonymous types are immutable tuples.
+Anonymous type property names can be inferred from properties and variables.
+
+string Name = "Michael";
+DateTime now = DateTime.Now;
+
+var o = new { Name, now.Year };
+o.Name.ShouldBe("Michael");
+o.Year.ShouldBe(2012);
+
+If you define multiple anonymous types with the same structure, the compiler will create just one defintion and create multiple instances of that type.
+	The same structure means, the same property names/types, specified in the same order.
+
+Tuple
+-----
+
+The term originated as an abstraction of the sequance: single, double, triple, quadruple, quintuple, n-tuple.
+
+Parameterful Properties (Indexers)
+----------------------------------
+
+Think of an indexer as a way to overload the the [] operator.
+Indexers can be overloaded.
+The C# compiler will emit the following items into the managed assembly:
+	A method for the get accessor.
+		The method will be called get_Item.
+	A method for the set accessor.
+		The method will be called set_Item.
+You can override the default method name (Item) with your own using the IndexerNameAttribute.
+	For example, the name of String's indexer is Chars instead of Item.
+
+Performace
+----------
+
+For simple get and set accessor methods, the JIT compiler inlines the code so that there is no performace hit compared to using fields.
+Inlining is when the code for a method is compiled directly in the method that is making the call.
+	This removes the overhead of calling the method.
