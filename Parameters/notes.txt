@@ -26,3 +26,8 @@ If a methods parameter is marked with ref:
 	The caller must initialise the object.
 	The called method can read the object.
 	The called method can write to the object.
+
+Passing a Variable Number of Arguments
+--------------------------------------
+
+The C# compiler will add the ParamArrayAttribute to a parameter marked with the params keyword.
