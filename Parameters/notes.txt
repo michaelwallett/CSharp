@@ -10,3 +10,19 @@ You cannot set default values for parameters marked with either out or ref keywo
 Named arguments must always appear at the end of the argument list.
 You can pass arguments by name that do not have default values.
 The C# compiler will add the OptionalAttribute and DefaultParameterValueAttribute to a parameter with a default value.
+
+Passing Parameters by Reference
+-------------------------------
+
+By default parameters are passed by value.
+To pass a parameter by reference you can use the out and ref keywords.
+The out and ref keywords produce the same IL.
+	They both cause a pointer to the instance to be passed.
+If a methods parameter is marked with out:
+	The caller isn't expected to initialise the object.
+	The called method cannot read from the object.
+	The called method must write to the object before returning.
+If a methods parameter is marked with ref:
+	The caller must initialise the object.
+	The called method can read the object.
+	The called method can write to the object.
