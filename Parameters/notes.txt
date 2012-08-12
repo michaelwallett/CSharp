@@ -1,0 +1,12 @@
+﻿Optional & Default Parameters
+-----------------------------
+
+You can specifiy default values for methods, constructors, and indexers.
+Parameters with default values must come after other parameters, except for params.
+Default values must be constant values known at compile time.
+A call site embeds the default values into it's call.
+	Changes to default values will not take effect unless you recompile the call site.
+You cannot set default values for parameters marked with either out or ref keywords.
+Named arguments must always appear at the end of the argument list.
+You can pass arguments by name that do not have default values.
+The C# compiler will add the OptionalAttribute and DefaultParameterValueAttribute to a parameter with a default value.
