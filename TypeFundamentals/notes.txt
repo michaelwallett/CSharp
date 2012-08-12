@@ -2,9 +2,9 @@ Primitive Types
 ---------------
 
 Any type the compiler directly supports.
-The compiler is able to cast primitive types implicity and explicitly.
-Implicit casts are "safe" becuase they do not result in data loss.
-Primitive types can be written as literals. A literal is an instace of the type itself.
+The compiler is able to cast primitive types implicitly and explicitly.
+Implicit casts are "safe" because they do not result in data loss.
+Primitive types can be written as literals. A literal is an instance of the type itself.
 
 Overflow Checking
 -----------------
@@ -28,7 +28,7 @@ Because value types don't have a sync block index it's not possible to have mult
 The CLR invokes virtual methods (Equals, GetHashCode, ToString) nonvirtually because value types are implicitly sealed.
 	Except when you override a virtual method and call the base type's implementation.
 		The value type gets boxed.
-Calling a nonvirtual method (GetType, MemberwiseClone) required the value type to be boxed becuase these methods are defined by System.Object.
+Calling a nonvirtual method (GetType, MemberwiseClone) required the value type to be boxed because these methods are defined by System.Object.
 The this keyword is read/write within a value type.
 
 Boxing
@@ -63,7 +63,7 @@ IL code is produced that describes the desired operation.
 	This code is referred to as the payload.
 A dynamic expression is really the same type as System.Object.
 
-Any expression can implicilty be cast to dynamic since all expressions result in a type that is derived from System.Object.
+Any expression can implicitly be cast to dynamic since all expressions result in a type that is derived from System.Object.
 
 object o = 123;
 int i = o; // Error: Needs to be explicitly cast from object to int.
@@ -74,13 +74,13 @@ int i = d; // Implicit cast from dynamic to int.
 
 At runtime the C# compiler first checks to see if an object implements the IDynamicMetaObjectProvider interface.
 	If yes then the GetMetaObject method is called which returns a DynamicMetaObject derived type.
-	If no then the reflection is used.
+	If no then reflection is used.
 
 Type Visibility
 ---------------
 
 You can access internal types from another assembly if the calling assembly is considered a "friend".
-	You specifiy friend assemblies by using the InternalsVisibleTo attribute.
+	You specify friend assemblies by using the InternalsVisibleTo attribute.
 	The friend assembly feature should only be used by assemblies that ship together.
 
 Static Classes
