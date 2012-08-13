@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailInbox.cs" />
+    <Compile Include="EmailInboxCompilerVersion.cs" />
+    <Compile Include="EmailInboxCompilerVersionTests.cs" />
+    <Compile Include="EmailInboxTests.cs" />
+    <Compile Include="NewEmailEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
