@@ -50,8 +50,12 @@
     <Compile Include="EmailInboxCompilerVersion.cs" />
     <Compile Include="EmailInboxCompilerVersionTests.cs" />
     <Compile Include="EmailInboxTests.cs" />
+    <Compile Include="EventKey.cs" />
+    <Compile Include="EventSet.cs" />
     <Compile Include="NewEmailEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeWithLotsOfEvents.cs" />
+    <Compile Include="TypeWithLotsOfEventsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

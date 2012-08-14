@@ -9,31 +9,31 @@ namespace Events
         private int _newEmailCount;
 
         [Test]
-        public void TestRegisteringForNewEmail()
+        public void TestNewEmailEvent()
         {
             var emailInbox = new EmailInboxCompilerVersion();
 
-            emailInbox.AddNewEmail(EmailInboxCompilerVersion_NewEmail1);
-            emailInbox.AddNewEmail(EmailInboxCompilerVersion_NewEmail2);
+            emailInbox.AddNewEmail(EmailInboxCompilerVersionNewEmail1);
+            emailInbox.AddNewEmail(EmailInboxCompilerVersionNewEmail2);
 
             emailInbox.Receive();
 
             _newEmailCount.ShouldBe(2);
 
-            emailInbox.RemoveNewEmail(EmailInboxCompilerVersion_NewEmail1);
+            emailInbox.RemoveNewEmail(EmailInboxCompilerVersionNewEmail1);
 
             emailInbox.Receive();
 
             _newEmailCount.ShouldBe(3);
 
-            emailInbox.RemoveNewEmail(EmailInboxCompilerVersion_NewEmail2);
+            emailInbox.RemoveNewEmail(EmailInboxCompilerVersionNewEmail2);
 
             emailInbox.Receive();
 
             _newEmailCount.ShouldBe(3);
         }
 
-        private void EmailInboxCompilerVersion_NewEmail1(object sender, NewEmailEventArgs e)
+        private void EmailInboxCompilerVersionNewEmail1(object sender, NewEmailEventArgs e)
         {
             sender.ShouldBeTypeOf<EmailInboxCompilerVersion>();
 
@@ -43,7 +43,7 @@ namespace Events
             _newEmailCount++;
         }
 
-        private void EmailInboxCompilerVersion_NewEmail2(object sender, NewEmailEventArgs e)
+        private void EmailInboxCompilerVersionNewEmail2(object sender, NewEmailEventArgs e)
         {
             sender.ShouldBeTypeOf<EmailInboxCompilerVersion>();
 
