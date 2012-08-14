@@ -7,6 +7,7 @@ namespace Events
     {
         private EventHandler<NewEmailEventArgs> NewEmail;
 
+        // The compiler will generate a method called add_NewEmail
         public void AddNewEmail(EventHandler<NewEmailEventArgs> value)
         {
             EventHandler<NewEmailEventArgs> currentHandler = NewEmail;
@@ -23,6 +24,7 @@ namespace Events
             while (currentHandler != previousHandler);
         }
 
+        // The compiler will generate a method called remove_NewEmail
         public void RemoveNewEmail(EventHandler<NewEmailEventArgs> value)
         {
             EventHandler<NewEmailEventArgs> currentHandler = NewEmail;

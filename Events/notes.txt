@@ -1,0 +1,43 @@
+How the Compiler Implements Events
+----------------------------------
+
+When defining an event:
+
+public event EventHandler<NewEmailEventArgs> NewEmail;
+
+1) The compiler will generate a private delegate field:
+
+private event EventHandler<NewEmailEventArgs> NewEmail = null;
+
+2) The compiler will generate a method called add_NewEmail to register for events.
+3) The compiler will generate a method called remove_NewEmail to unregister for events.
+
+The accessibility of the add_{EventName} and remove_{EventName} methods match the accessibility of the event you declared.
+
+4) The compiler will emit an event definition entry into the assembly's metadata.
+
+Registering/Unregistering for Events
+------------------------------------
+
+When registering for an event:
+
+emailInbox.NewEmail += NewEmailHandler;
+
+The compiler will generate:
+
+emailInbox.add_NewEmail(new EventHandler<NewEmailEventArgs>(NewEmailHandler));
+
+When unregistering for an event:
+
+emailInbox.NewEmail -= NewEmailHandler;
+
+The compiler will generate:
+
+emailInbox.remove_NewEmail(new EventHandler<NewEmailEventArgs>(NewEmailHandler));
+
+Explicitly Implementing an Event
+--------------------------------
+
+If a type has a large number of events you should consider implementing them explicitly.
+	To save on memory when creating an instance of the type.
+	System.Web.UI.Control uses the System.ComponentModel.EventHandlerList to maintain it's set of events.
