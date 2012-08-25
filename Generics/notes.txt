@@ -41,4 +41,19 @@ The CLR has some optimisations built in to help reduce code explosion:
 	The CLR has to produce native code for each value type.
 		The reason is because value types can vary in size, and different native CPU instructions can be used to manipulate these values.
 
+Contravariant and Covariant Generic Type Arguments
+--------------------------------------------------
 
+A generic type parameter can be invariant.
+	A generic type parameter cannot be changed.
+A generic type parameter can be contravariant.
+	A generic type parameter can change from a class to a class derived from it.
+	The in keyword indicates that a type parameter is contravariant.
+A generic type parameter can be covariant.
+	A generic type parameter can change from a class to one if it's base classes.
+	The out keyword indicates that a type parameter is covariant.
+
+Variance is only applied to reference types. Variance is not possible for value types becuase boxing would be required.
+Variance is not allowed on generic type parameters if an argument of that type is passed to a method using the out or ref keywords.
+
+You should always specify variance whenever possible.
