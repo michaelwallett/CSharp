@@ -1,0 +1,15 @@
+﻿Generics
+--------
+
+Uppercase T stands for type.
+When defining a generic type or method, any variables it specifies for types (such as T) are called type parameters.
+When using a generic type or method, the specified data types are called type arguments.
+
+Generics provide the following benefits:
+	Source code protection.
+		With C++ templates or Java generics, the algorithm's source code must be available to the developer.
+	Type safety.
+	Cleaner code (fewer casts).
+	Improved performace.
+		When populating an ArrayList with a value type, the CLR has to box the value type, causing memory allocations on the heap, which in turn causes more frequent garbage collections.
+		The CLR dosen't have to check type safety.
