@@ -11,13 +11,7 @@ namespace Generics
         private const int Count = 1000000;
 
         [Test]
-        public void TestPerformance()
-        {
-            TestValueTypePerformace();
-            TestReferenceTypePerformance();
-        }
-
-        private void TestValueTypePerformace()
+        public void TestValueTypePerformace()
         {
             using (new OperationTimer("List<int>"))
             {
@@ -46,7 +40,8 @@ namespace Generics
             }
         }
 
-        private void TestReferenceTypePerformance()
+        [Test]
+        public void TestReferenceTypePerformance()
         {
             using (new OperationTimer("List<string>"))
             {
