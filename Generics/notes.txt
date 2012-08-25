@@ -4,6 +4,8 @@
 Uppercase T stands for type.
 When defining a generic type or method, any variables it specifies for types (such as T) are called type parameters.
 When using a generic type or method, the specified data types are called type arguments.
+Calling ToString on a generic type object will display a backtick (`) followed by a number, for example System.Collections.Generic.Dictionary`2[TKey,TValue].
+	The number indicates the type's arity, which indicates the number of type parameters.
 
 Generics provide the following benefits:
 	Source code protection.
@@ -13,3 +15,30 @@ Generics provide the following benefits:
 	Improved performace.
 		When populating an ArrayList with a value type, the CLR has to box the value type, causing memory allocations on the heap, which in turn causes more frequent garbage collections.
 		The CLR dosen't have to check type safety.
+
+Open and Closed Types
+---------------------
+
+A type with generic type parameters (such as T) is called an open type.
+	CLR does not allow you to create instances of open types.
+A closed type has all of it's type parameters satisfied by actual data types.
+You can have partially closed types.
+	Not all type arguments have been specified.
+	This creates a new open type.
+Each closed type has it's own static fields.
+
+Code Explosion
+--------------
+
+When a method that uses generic type parameters is JIT-compiled, the CLR takes the method's IL, substitutes the specified type arguments, and then creates native code that is specfic to the method operating on the specfied data type.
+	The CLR will generate native code for every method/type combination.
+		This is called code explosion.
+		This will increase the application's working set, thereby hurting performace.
+The CLR has some optimisations built in to help reduce code explosion:
+	The CLR will compile the code for a method/type combination just once.
+	The CLR will reuse the same compiled code for all reference types.
+		The CLR can perform this optimisation because all reference type arguments and varaibles are pointers to objects on the heap, and object points are all manipulated in the same way.
+	The CLR has to produce native code for each value type.
+		The reason is because value types can vary in size, and different native CPU instructions can be used to manipulate these values.
+
+
