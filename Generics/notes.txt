@@ -57,3 +57,45 @@ Variance is only applied to reference types. Variance is not possible for value 
 Variance is not allowed on generic type parameters if an argument of that type is passed to a method using the out or ref keywords.
 
 You should always specify variance whenever possible.
+
+Verifiability and Constraints
+-----------------------------
+
+The CLR dosen't allow overloading based on type parameter names or constraints.
+You can overload types or methods based on arity.
+When overriding a generic method, the overriding method will inherit any constraints.
+	You cannot specifiy constraints on an overriding method.
+
+Primary constraints:
+	A type parameter can specifiy 0 or 1 primary constraint.
+	A primary constraint must be a reference type.
+	A primary constraint must be a class that is not sealed.
+		Except for System.Object, System.Array, System.Delegate, System.MulticastDelegate, System.ValueType, System.Enum, or System.Void.
+	Value types cannot be used as a primary constraint.
+	Type arguments must be the same type specified as the primary constraint, or a derived type of the primary constraint.
+	The class constraint can be used to specify that the type parameter must be a reference type.
+		This means you can set local variables of the type parameter to null.
+			Value types cannot be set to null.
+
+		T temp = null;
+
+	The struct constraint can be used to specify that the type parameter must be a value type.
+		Nullable types do not satify this constraint.
+		This means you can instantiate the type using it's parameterless constructor.
+			Value types always have a public, parameterless constructor.
+			Reference types don't always have a parameterless constructor.
+
+		new T();
+
+Secondary constraints:
+	A type parameter can specify 0 or more secondary constraints.
+	A secondary constraint can be an interface.
+	Another kind of secondary constraint is the type parameter constraint.
+		Also referred to as a naked type constraint.
+		Allows you to specify a relationship between type parameters.
+
+Constructor constraints:
+	A type parameter can specify 0 or 1 constructor constraint.
+	The specified type parameter will be a non-abstract types that implements a public, parameterless constructor.
+	The struct primary constraint makes the new() constructor constraint redundant.
+		Value types always have a public, parameterless constructor.
